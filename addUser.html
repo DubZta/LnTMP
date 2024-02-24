@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Create User</h1>
+    <form id="create-user-form" action="addUser.php" method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo">
+      </div>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" required></textarea>
+      </div>
+      <input type="hidden" id="error-message" name="error-message">
+      <button type="submit">Create User</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

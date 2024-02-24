@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Absensi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="connection.php" method="post">
+        <div class="form signup">
+            <h2>Sign Up</h2>
+                <div class="inputBox">
+                    <input type="text" name="firstName" required="required">
+                    <i class="fa-regular fa-user"></i>
+                    <span>First Name</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="lastName" required="required">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Last Name</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="email" required="required">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email Address</span>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required="required">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Create Password</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="bio" required="required">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Bio</span>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Create Account">
+                </div>
+            </form>
+            <p>Have an account? <a href="#" class="login">Log In</a></p>
+        </div>
+        
+        <form action="connection.php" method="post">
+        <div class="form signin">
+            <h2>Log In</h2>
+                <div class="inputBox">
+                    <input type="email" name="username" required="required">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Email Address</span>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required="required">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Password</span>
+                </div>
+                <div class="inputBox">
+                    <input type="checkbox" name="rememberme" id="rememberme">
+                    <label for="rememberme">Remember Me</label>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+            <p>Don't have an account? <a href="#" class="create">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        let login = document.querySelector('.login');
+        let create = document.querySelector('.create');
+        let container = document.querySelector('.container');
+
+        login.onclick = function(){
+            container.classList.add('signinForm');
+        }
+        
+        create.onclick = function(){
+            container.classList.remove('signinForm');
+        }
+    </script>
+</body>
+</html>

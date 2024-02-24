@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .profile-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .profile-container p {
+            margin: 10px 0;
+        }
+        .edit-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile</h1>
+    <div class="profile-container">
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "attendance_system";
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if ($conn->connect_error) {
+            die("Failed Connection: " . $conn->connect_error);
+        }
+
+        session_start();
+        if (isset($_SESSION['email'])) {
+            $email = $_SESSION['email'];
+
+            $sql = "SELECT * FROM user WHERE email='$email'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                echo "<p><strong>First Name:</strong> " . $row['firstName'] . "</p>";
+                echo "<p><strong>Last Name:</strong> " . $row['lastName'] . "</p>";
+                echo "<p><strong>Email:</strong> " . $row['email'] . "</p>";
+                echo "<p><strong>Bio:</strong> " . $row['bio'] . "</p>";
+            } else {
+                echo "No user found.";
+            }
+        } else {
+            echo "Session not set.";
+        }
+
+        $conn->close();
+        ?>
+        <a href="edit_profile.html" class="edit-button">Edit Profile</a>
+    </div>
+</body>
+</html>

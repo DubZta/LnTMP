@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Rio cantik</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+      <form class="search-form">
+        <input type="text" placeholder="Search by name or email">
+        <button type="submit">Search</button>
+      </form>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Attendance System</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Action</th>
+          <td>
+            <button class="view-btn">View</button>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </thead>
+      <?php
+      if(is_array($fetchData)){
+      $sn=1;
+      foreach($fetchData as $data)}
+      ?>
+      <tbody>
+        <td> <?php echo $rows['id']; ?>
+
+        <td> <?php echo $rows['firstName']; ?>
+
+        <td> <?php echo $rows['lastName']; ?>
+          
+        <td> <?php echo $rows['email']; ?>
+      </tbody>
+    </table>
+    <a href="addUser.html" class="add-user-btn">Add New User</a>
+  </main>
+
+</body>
+
+</html>
