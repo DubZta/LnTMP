@@ -1,0 +1,8 @@
+Mengapa saya tidak connect ke database MySQL?
+Karena saya sudah mencobanya dan gagal terus menerus connect ke database MySQL
+Jadi saya menggunakan metode connect ke localStorage dari browser.
+Untuk melihat data yang sudah di input dalam localStorage dari browser:
+1. inspect element 
+2. open tab application
+3. akan muncul users dalam kolom key
+Untuk password sudah di hash

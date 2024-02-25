@@ -9,7 +9,7 @@
 
 <body>
     <div class="container">
-        <form action="connection.php" method="post">
+        <form action="connection.php" method="post" onsubmit="return validateSignUpForm()">
         <div class="form signup">
             <h2>Sign Up</h2>
                 <div class="inputBox">
@@ -44,7 +44,7 @@
             <p>Have an account? <a href="#" class="login">Log In</a></p>
         </div>
         
-        <form action="connection.php" method="post">
+        <form action="connection.php" method="post" onsubmit="return validateLoginForm()">
         <div class="form signin">
             <h2>Log In</h2>
                 <div class="inputBox">
@@ -73,14 +73,67 @@
         let login = document.querySelector('.login');
         let create = document.querySelector('.create');
         let container = document.querySelector('.container');
-
-        login.onclick = function(){
-            container.classList.add('signinForm');
+    
+        login.onclick = function () {
+          container.classList.add('signinForm');
         }
-        
-        create.onclick = function(){
-            container.classList.remove('signinForm');
+    
+        create.onclick = function () {
+          container.classList.remove('signinForm');
         }
-    </script>
-</body>
-</html>
+    
+        function validateSignUpForm() {
+          const firstName = document.forms[0].elements.firstName.value;
+          const lastName = document.forms[0].elements.lastName.value;
+          const email = document.forms[0].elements.email.value;
+          const password = document.forms[0].elements.password.value;
+          const bio = document.forms[0].elements.bio.value;
+    
+          if (firstName.trim() === "") {
+            alert("Please enter your first name.");
+            return false;
+          }
+    
+          if (lastName.trim() === "") {
+            alert("Please enter your last name.");
+            return false;
+          }
+    
+          if (email.trim() === "") {
+            alert("Please enter your email address.");
+            return false;
+          }
+    
+          if (password.trim() === "") {
+            alert("Please enter a password.");
+            return false;
+          }
+    
+          if (bio.trim() === "") {
+            alert("Please enter your bio.");
+            return false;
+          }
+    
+          return true;
+        }
+    
+        function validateLoginForm() {
+          const username = document.forms[1].elements.username.value;
+          const password = document.forms[1].elements.password.value;
+    
+          if (username.trim() === "") {
+            alert("Please enter your email address.");
+            return false;
+          }
+    
+          if (password.trim() === "") {
+            alert("Please enter your password.");
+            return false;
+          }
+    
+          return true;
+        }
+      </script>
+    </body>
+    
+    </html>

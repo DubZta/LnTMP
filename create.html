@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" type="text/css" href="create.css">
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="createForm">
+                    <h2>Create User</h2>
+                    <div class="inputbox">
+                        <ion-icon name="contact"></ion-icon>
+                        <input type="text" id="firstName" required>
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="contacts"></ion-icon>
+                        <input type="text" id="lastName" required>
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail"></ion-icon>
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="basketball"></ion-icon>
+                        <input type="text" id="bio">
+                        <label for="bio">Bio</label>
+                    </div>
+                    <button type="button" onclick="createUser()">Create User</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script>
+        function hashPassword(password) {
+            var hashedPassword = CryptoJS.SHA256(password).toString();
+            return hashedPassword;
+        }
+
+        function createUser() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+
+            if (firstName === '' || lastName === '' || password === '' || email === '') {
+                alert("Please Fill All The Data!");
+                return;
+            }
+
+            var hashedPassword = hashPassword(password);
+
+            var user = {
+                firstName: firstName,
+                lastName: lastName,
+                password: hashedPassword,
+                email: email
+            };
+
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+
+            users.push(user);
+
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("User Created!");
+
+            window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+</html>

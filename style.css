@@ -6,12 +6,13 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+ 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #9BB8CD;
+  background-color: #9BB8CD;
 }
 
 .container {
