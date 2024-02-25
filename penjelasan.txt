@@ -6,4 +6,4 @@ Untuk melihat data yang sudah di input dalam localStorage dari browser:
 2. open tab application
 3. akan muncul users dalam kolom key
 Untuk password sudah di hash
-Terdapat beberapa file seperti addUser.html dan .php yang tidak digunakan karena bingung cara menggabungkannya ke database mySQL
+Terdapat beberapa foto random dan file seperti addUser.html, addUser.php, showUsers.php yang tidak digunakan karena bingung cara menggabungkannya ke database mySQL
